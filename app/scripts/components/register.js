@@ -34,20 +34,7 @@ class Register extends Component {
 		};
 
 
-		const { pushState } = this.props.history;
-		$.ajax({
-			url: 'https://api.parse.com/1/classes/Registration',
-			method: 'POST',
-			contentType: 'application/json',
-			headers: headers,
-			data: JSON.stringify(formData),
-			success: function() {
-				pushState('/');
-			},
-			error: function(response) {
-				console.log(response);
-			}
-		});
+		console.log(formData);
 	}
 
 	render() {
