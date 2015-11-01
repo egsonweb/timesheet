@@ -1,0 +1,20 @@
+var path = require('path');
+var webpack = require('webpack');
+var WebpackDevServer = require('webpack-dev-server');
+var config = require('./webpack.config');
+
+new WebpackDevServer(webpack(config), {
+	contentBase: path.join(__dirname, 'app'),
+	hot: true,
+	inline: true,
+	stats: {
+		chunkModules: false,
+		colors: true,
+	},
+}).listen(config.port, config.ip, function (err) {
+	if (err) {
+		console.log(err);
+	}
+
+	console.log('Listening at ' + config.ip + ':' + config.port);
+});

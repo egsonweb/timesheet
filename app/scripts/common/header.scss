@@ -1,0 +1,15 @@
+.navbar {
+	margin: 0;
+	padding: 20px 0;
+	background-color: #ffffff;
+	border: none;
+	transition: all 0.3s ease;
+	a {
+		text-transform: uppercase;
+		font-weight: 500;
+	}
+	&.navbar-scroll-past {
+		padding: 0;
+		box-shadow: 0 1px 2px 1px #aaa;
+	}
+}
