@@ -1,28 +1,22 @@
 import './register.scss';
 import React, { Component } from 'react';
-import $ from 'jquery';
+import { Api } from '../../core';
 
 class Register extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
+		let { pushState } = this.props.history;
 		let firstName = this.refs.firstname.value;
 		let lastName = this.refs.lastname.value;
 		let email = this.refs.email.value;
 		let mobile = this.refs.mobile.value;
-
-		let apt = this.refs.apt.value;
-		let street = this.refs.street.value;
-		let city = this.refs.city.value;
-		let state = this.refs.state.value;
-
+		let approval = false;
 		let address = {
-			apt, street, city, state
-		};
-
-		let headers = {
-			'X-Parse-Application-Id': 'u0Bb2tS5RKJCswNcUUH2qyq3DgLSr0o6aPW1puCl',
-			'X-Parse-REST-API-Key': 'HaXOyxqbf03JVj1BKrLhakxwHbtKiSf9smTW0PBC'
+			apt: this.refs.apt.value,
+			street: this.refs.street.value,
+			city: this.refs.city.value,
+			state: this.refs.state.value
 		};
 
 		let formData = {
@@ -30,11 +24,13 @@ class Register extends Component {
 			lastName,
 			email,
 			mobile,
+			approval,
 			address
 		};
 
-
-		console.log(formData);
+		Api.create(formData).then(() => {
+			pushState(null, '/register_success/' + formData.email);
+		});
 	}
 
 	render() {
