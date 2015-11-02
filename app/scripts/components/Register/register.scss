@@ -1,5 +1,5 @@
 .register {
-	max-width: 800px;
+	max-width: 600px;
 	margin: 80px auto;
 	padding: 32px;
 	background-color: #ffffff;
@@ -10,8 +10,12 @@
 
 .register-form {
 	.form-control {
+		padding-left: 0;
 		box-shadow: none;
 		border-radius: 0;
+		border-left: none;
+		border-top: none;
+		border-right: none;
 	}
 	.btn {
 		border-radius: 0;
