@@ -9,8 +9,7 @@ var ROOT_PATH = path.resolve(__dirname);
 
 var config;
 var paths = {
-  app: path.join(ROOT_PATH, 'app'),
-  demo: path.join(ROOT_PATH, 'demo'),
+  app: path.join(ROOT_PATH, 'app')
 };
 
 var common = {
