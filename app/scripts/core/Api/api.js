@@ -24,7 +24,7 @@ const TimesheetApi = {
 		}
 	},
 
-	get(endpoint, query, classes=false) {
+	get(endpoint, query={}, classes=false) {
 		const url = this.construct(endpoint, classes);
 		const headers = this.headers();
 
@@ -60,12 +60,19 @@ const TimesheetApi = {
 	}
 };
 
-export default {
-	fetch(query) {
-		return TimesheetApi.get('registration', query, true);
-	},
+function make(endpoint, classes=false) {
+	return {
+		get(query) {
+			return TimesheetApi.get(endpoint, query, classes);
+		},
 
-	create(body) {
-		return TimesheetApi.post('registration', body, true);
+		post(data) {
+			return TimesheetApi.post(endpoint, data, classes);
+		}
 	}
+}
+
+export default {
+	Users: make('users'),
+	Registration: make('registration', true)
 };
