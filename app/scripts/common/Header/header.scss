@@ -7,9 +7,31 @@
 	a {
 		text-transform: uppercase;
 		font-weight: 500;
+		font-size: 13px;
 	}
 	&.navbar-scroll-past {
 		padding: 0;
 		box-shadow: 0 1px 2px 1px #aaa;
+	}
+}
+
+.navbar-brand {
+	width: 165px;
+	height: 27px;
+	padding-top: 30px;
+	display: block;
+	text-indent: -9999px;
+	text-decoration: none;
+	background: url('/images/express-logo.png') center center no-repeat;
+}
+
+
+@media screen and (min-width: 768px) {
+	.navbar {
+		> .container {
+			.navbar-brand {
+				margin-left: 0;
+			}
+		}
 	}
 }
